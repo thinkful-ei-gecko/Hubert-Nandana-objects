@@ -25,3 +25,17 @@ let obj1={};
 let updateObj =updateObject(obj1);
 console.log(updateObj);
 
+function personMaker() {
+    var person = {
+      firstName: 'Paul',
+      lastName: 'Jones',
+      fullName: function() {
+          return `${this.firstName} ${this.lastName}`
+      },
+    };
+    return person;
+  }
+
+let persons = personMaker();
+
+console.log(persons.fullName());
