@@ -119,8 +119,33 @@ const characters = [
     }
 ];
 
-for (let i=0; i < characters.length; i++) {
+const arwen = characters.push(createCharacter('Arwen Undomiel', 'arwen', 'Half-Elf', 'Rivendell','Hadhafang',  5, 6));
+const nickNameFinder = characters.find(name => name.nickName === 'legolas').describe();
+const race = characters.filter(home => home.race === 'Hobbit');
+const attack = characters.filter(atk => atk.attack > 5);
 
+//console.log(nickNameFinder);
+
+//8. BONUS: A Database Search
+
+const HEROES = [
+    { id: 1, name: 'Captain America', squad: 'Avengers' },
+    { id: 2, name: 'Iron Man', squad: 'Avengers' },
+    { id: 3, name: 'Spiderman', squad: 'Avengers' },
+    { id: 4, name: 'Superman', squad: 'Justice League' },
+    { id: 5, name: 'Wonder Woman', squad: 'Justice League' },
+    { id: 6, name: 'Aquaman', squad: 'Justice League' },
+    { id: 7, name: 'Hulk', squad: 'Avengers' },
+  ];
+
+  function findOne(arr, query) {
+      //always return the first matching result
+      //return NULL if object keys are not matched
+      //return the object if there is a partial match
+    for (let query in HEROES) {
+        if (Object.keys(HEROES)[query] === HEROES[query]) {
+            return HEROES[query];
+        }
 }
 
 const character = createCharacter('Gandalf the White', 'gandalf', 'Wizard', 'Middle Earth', 10, 6);
