@@ -27,3 +27,11 @@ let object={
  for(let key in object){
      console.log(`${key} : ${object[key]}`);
  }
+
+ // 3. Array in Objects
+
+ let food = {
+     meals: ['breakfast', 'second breakfast', 'elevenses', 'lunch', 'afternoon tea', 'dinner', 'supper']
+ };
+
+ console.log(food.meals[3]);
