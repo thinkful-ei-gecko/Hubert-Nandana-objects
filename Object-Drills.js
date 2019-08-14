@@ -75,3 +75,54 @@ function decode(sentence){
 }
 
 console.log(decode('craft block argon meter bells brown croon droop'));
+
+//7. Factory Functions with LOTR
+//Each character should have "describe" & "evaluateFight" method
+
+function createCharacter(name, nickName, race, origin, attack, defense) {
+    return {
+        name,
+        nickName,
+        race,
+        origin,
+        attack,
+        defense,
+        describe() {
+            return `${name} is a ${race} from ${origin}.`
+        },
+        evaluateFight() {
+            let x = this.attack - this.damage; 
+            if (this.defense > this.attack) {
+                return `Your oppent takes zero damage`;
+            } else {
+                return `Your opponent takes ${x} damage and you receive ${this.attack}`
+            }
+        }
+    }
+}
+
+const characters = [
+    {
+        name: 'Gandalf the White'
+    },
+    {
+        name: 'Bilbo Baggins'
+    },
+    {
+        name: 'Frodo Baggins'
+    },
+    {
+        name: 'Aragorn son of Arathorn'
+    },
+    {
+        name: 'Legolas'
+    }
+];
+
+for (let i=0; i < characters.length; i++) {
+
+}
+
+const character = createCharacter('Gandalf the White', 'gandalf', 'Wizard', 'Middle Earth', 10, 6);
+console.log(character.describe());
+console.log(character.evaluateFight());
