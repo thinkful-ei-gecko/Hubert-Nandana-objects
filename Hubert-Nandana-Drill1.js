@@ -1,0 +1,13 @@
+function createMyObject() {
+    return {
+        foo: 'bar',
+        answerToUniverse: 42,
+        'olly olly': 'oxen free',
+        sayHello() {
+            console.log('hello');
+        }
+    };
+}
+
+let sayHi = createMyObject();
+console.log(sayHi.sayHello());
