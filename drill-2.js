@@ -59,47 +59,14 @@ function testIt() {
     return;
   }
   if (result.bang !== 'boo') {
-    console.error(
-      'Expected all key/value pairs from target object to be returned'
+    console.error(');
+      'Expected all key/value 
+}pairs from target object to be returned'
     );
     return;
   }
-  console.log('SUCCESS: `findByid` is working');
-}
+  console.log('SUCCESS: `findByid` is working
 
 testIt();
 
-const objectA = {
-    id: 2,
-    name: 'Jane Doe',
-    age: 34,
-    city: 'Chicago',
-  };
-  
-  // running the function with `objectB` and `expectedKeys`
-  // should return `false`
-  const objectB = {
-    id: 3,
-    age: 33,
-    city: 'Peoria',
-  };
-  
-  const expectedKeys = ['id', 'name', 'age', 'city'];
-  
-  function validateKeys(object, expectedKeys) {
-    // your code goes here
-    if(Object.keys(object).length != expectedKeys.length){
-        return false;
-    }
-    for (let i=0; i<expectedKeys.length;i++){
-       Object.keys(object).find(el=>el===expectedKeys[i])
-       return true;
-    }
-  
-  }
-  
-  console.log(validateKeys(objectA,expectedKeys));
-  console.log(validateKeys(objectB,expectedKeys));
-
-
-
+Object.keys(object).find(el => el === expectedKeys[i]);

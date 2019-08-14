@@ -14,7 +14,7 @@ function loaf() {
 }
 
 let bread = loaf();
-console.log(bread.hydration());
+//console.log(bread.hydration());
 
 let object={
   foo:'happy',
@@ -24,9 +24,11 @@ let object={
   spam:'sandwitch'
 
 };
+/*
 for(let key in object){
   console.log(`${key} : ${object[key]}`);
 }
+*/
 
 // 3. Array in Objects
 
@@ -34,7 +36,7 @@ let food = {
   meals: ['breakfast', 'second breakfast', 'elevenses', 'lunch', 'afternoon tea', 'dinner', 'supper']
 };
 
-console.log(food.meals[3]);
+//console.log(food.meals[3]);
 
 
 // 4 & 5 Array of Objects/ Properties that aren't there
@@ -45,7 +47,7 @@ let jobs=[
   {name:'Nandana',jobTitle:'developer', boss: 'Jimmy'},
   {name:'Hubert',jobTitle:'Founder', boss: 'Owner'}
 ];
-
+/*
 for (let i=0;i<jobs.length;i++){
   if (jobs[i].boss === 'Owner') {
     console.log(`${jobs[i].jobTitle} ${jobs[i].name} doesn't report to anybody`)
@@ -53,7 +55,7 @@ for (let i=0;i<jobs.length;i++){
     console.log(`${jobs[i].jobTitle} ${jobs[i].name} reports to ${jobs[i].boss}`);
   }
 }
-
+*/
 function decode(sentence){
   const cipher={
     a:2,
@@ -74,49 +76,41 @@ function decode(sentence){
   return decoded.join('');
 }
 
-console.log(decode('craft block argon meter bells brown croon droop'));
+//console.log(decode('craft block argon meter bells brown croon droop'));
 
 //7. Factory Functions with LOTR
 //Each character should have "describe" & "evaluateFight" method
 
-function createCharacter(name, nickName, race, origin, attack, defense) {
+function createCharacter(name, nickName, race, origin, weapon, attack, defense,) {
     return {
         name,
         nickName,
         race,
         origin,
+        weapon,
         attack,
         defense,
         describe() {
-            return `${name} is a ${race} from ${origin}.`
+            return `${name} is a ${race} from ${origin} who uses a ${weapon}.`
         },
         evaluateFight() {
             let x = this.attack - this.damage; 
+            let y = this.damage - this.attack;
             if (this.defense > this.attack) {
                 return `Your oppent takes zero damage`;
             } else {
-                return `Your opponent takes ${x} damage and you receive ${this.attack}`
+                return `Your opponent takes ${x} damage and you receive ${y}`
             }
         }
-    }
-}
+    };
+};
 
 const characters = [
-    {
-        name: 'Gandalf the White'
-    },
-    {
-        name: 'Bilbo Baggins'
-    },
-    {
-        name: 'Frodo Baggins'
-    },
-    {
-        name: 'Aragorn son of Arathorn'
-    },
-    {
-        name: 'Legolas'
-    }
+    createCharacter('Gandalf the White', 'gandalf', 'Wizard', 'Middle Earth', 'wizard staff', 10, 6),
+    createCharacter('Bilbo Baggins', 'bilbo', 'Hobbit', 'The Shire', 'ring', 2, 1),
+    createCharacter('Frodo Baggins', 'frodo', 'Hobbit', 'The Shire', 'String and Barrow Blade', 3, 2),
+    createCharacter('Aragorn son of Arathorn', 'aragorn', 'Man', 'Dunnedain', 'Anduril', 6, 8),
+    createCharacter('Legolas', 'legolas', 'Elf', 'Woodland Realm', 'Bow and Arrow', 8, 5)
 ];
 
 const arwen = characters.push(createCharacter('Arwen Undomiel', 'arwen', 'Half-Elf', 'Rivendell','Hadhafang',  5, 6));
@@ -146,8 +140,5 @@ const HEROES = [
         if (Object.keys(HEROES)[query] === HEROES[query]) {
             return HEROES[query];
         }
-}
-
-const character = createCharacter('Gandalf the White', 'gandalf', 'Wizard', 'Middle Earth', 10, 6);
-console.log(character.describe());
-console.log(character.evaluateFight());
+    }
+  };
