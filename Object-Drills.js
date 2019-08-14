@@ -46,11 +46,32 @@ let jobs=[
   {name:'Hubert',jobTitle:'Founder', boss: 'Owner'}
 ];
 
-  for (let i=0;i<jobs.length;i++){
-      if (jobs[i].boss === 'Owner') {
-          console.log(`${jobs[i].jobTitle} ${jobs[i].name} doesn't report to anybody`)
-      } else {
-        console.log(`${jobs[i].jobTitle} ${jobs[i].name} reports to ${jobs[i].boss}`);
-      }
+for (let i=0;i<jobs.length;i++){
+  if (jobs[i].boss === 'Owner') {
+    console.log(`${jobs[i].jobTitle} ${jobs[i].name} doesn't report to anybody`)
+  } else {
+    console.log(`${jobs[i].jobTitle} ${jobs[i].name} reports to ${jobs[i].boss}`);
   }
+}
 
+function decode(sentence){
+  const cipher={
+    a:2,
+    b:3,
+    c:4,
+    d:5
+
+  };
+  //craft block argon meter bells brown croon droop
+  const sentArray = sentence.split(' ');
+  const decoded = sentArray.map(word => {
+    let offset;
+    if(cipher[word[0]]){
+        offset=cipher[word[0]]-1;
+    }
+    return offset?word[offset]:' ';
+  });
+  return decoded.join('');
+}
+
+console.log(decode('craft block argon meter bells brown croon droop'));
