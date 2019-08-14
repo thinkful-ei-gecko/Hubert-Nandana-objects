@@ -36,11 +36,21 @@ let food = {
 
 console.log(food.meals[3]);
 
-let jobs=[{name:'John',jobTitle:'sales'},
-  {name:'Alex',jobTitle:'teacher'},
-  {name:'Nandana',jobTitle:'developer'},
-  {name:'Hubert',jobTitle:'developer'}];
+
+// 4 & 5 Array of Objects/ Properties that aren't there
+
+let jobs=[
+  {name:'John',jobTitle:'sales', boss: 'Joe'},
+  {name:'Alex',jobTitle:'teacher', boss: 'Jane'},
+  {name:'Nandana',jobTitle:'developer', boss: 'Jimmy'},
+  {name:'Hubert',jobTitle:'Founder', boss: 'Owner'}
+];
 
   for (let i=0;i<jobs.length;i++){
-      console.log(`${jobs[i].jobTitle}:${jobs[i].name}`);
+      if (jobs[i].boss === 'Owner') {
+          console.log(`${jobs[i].jobTitle} ${jobs[i].name} doesn't report to anybody`)
+      } else {
+        console.log(`${jobs[i].jobTitle} ${jobs[i].name} reports to ${jobs[i].boss}`);
+      }
   }
+
