@@ -132,7 +132,7 @@ const HEROES = [
     { id: 7, name: 'Hulk', squad: 'Avengers' },
   ];
 
-  function findOne(arr, query) {
+  /*function findOne(arr, query) {
       //always return the first matching result
       //return NULL if object keys are not matched
       //return the object if there is a partial match
@@ -141,4 +141,37 @@ const HEROES = [
             return HEROES[query];
         }
     }
-  };
+  };*/
+
+  function findOne(arr, query) {
+    let obj = arr.find(elem => {
+      let found = true;
+      for (let key in query) {
+        if(elem.hasOwnProperty(key)) {
+          if (elem[key] !== query[key]) {
+            found = false;
+          }
+        }
+        else {
+          found = false;
+        }
+      }
+      if(found === true) {
+        return elem;
+      }
+    });
+  
+    if (obj === undefined) {
+      return null;
+    }
+    else {
+      return obj;
+    }
+  }
+  
+  console.log(findOne(HEROES, { id: 1 }));
+  console.log(findOne(HEROES, { id: 10 }));
+  console.log(findOne(HEROES, { id: 2, name: 'Aquaman' }));
+  console.log(findOne(HEROES, { id: 5, squad: 'Justice League' }));
+  console.log(findOne(HEROES, { squad: 'Justice League' }));
+  
